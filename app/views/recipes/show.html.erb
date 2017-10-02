@@ -1,0 +1,27 @@
+<h1>Recipe Info</h1>
+<h2>Title: <%= @recipe.title %> </h2>
+<h5>Update On: <%= @recipe.updated_at %></h5>
+<h3> Chef: <%= @recipe.chef%> </h3>
+<h5>Prep Time: <%=@recipe.friendly_prep_time%></h5>
+<h4> Ingredients: </h4>
+<ul>
+  <%= @recipe.ingredients.ingredients.split(",").each do%> 
+    <li><%= ingredient %></li>
+   <% end %>
+</ul>
+
+<h4> Directions: </h4>
+<ol>
+  <%= @recipe.directions.split(",").each do |direction|%>
+    <li><%= direction %></li>
+  <% end %>
+<ol> 
+
+
+<a href= "/recipe/"<%= @recipe.id %>/edit" class="btn btn-warning">Edit Recipe</a>
+
+<%= form_tag "/recipes/#{ @recipe.id }", method: :delete do %>
+  <input tupe ="submit" value="Delete recipe" class= "btn btn-danger"
+<% end %>
+
+<a href="/recipes/<%= @recipes.id %>" data-method="delete">Delete Recipe">
